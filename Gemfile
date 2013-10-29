@@ -8,6 +8,8 @@ gem 'rails', '4.0.1.rc1'
 group :development, :test do
   gem 'sqlite3', '1.3.8'
   gem 'rspec-rails', '2.13.1'
+  # smart rpec test running...
+  gem 'guard-rspec', '2.5.0'
 end
 
 group :test do
