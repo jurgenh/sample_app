@@ -39,4 +39,8 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+  # per tutorial, add this line...future will use feature specs...
+  # still needed as o 10/29/13
+  config.include Capybara::DSL
 end
