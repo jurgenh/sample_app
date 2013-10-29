@@ -21,7 +21,7 @@ guard 'rspec', all_after_pass: false do
   watch(%r{^app/controllers/sessions_controller\.rb$}) do |m|
     "spec/requests/authentication_pages_spec.rb"
   end
-end
+
 
 
 # original content
@@ -44,5 +44,7 @@ guard 'rspec' do
   # Turnip features and steps
   watch(%r{^spec/acceptance/(.+)\.feature$})
   watch(%r{^spec/acceptance/steps/(.+)_steps\.rb$})   { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'spec/acceptance' }
+end
+
 end
 

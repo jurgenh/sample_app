@@ -10,6 +10,8 @@ group :development, :test do
   gem 'rspec-rails', '2.13.1'
   # smart rpec test running...
   gem 'guard-rspec', '2.5.0'
+  # for save_and_open_page
+  gem 'launchy', '~> 2.3'
 end
 
 group :test do
