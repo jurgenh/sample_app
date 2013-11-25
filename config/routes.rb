@@ -5,7 +5,14 @@ SampleApp::Application.routes.draw do
   match '/about', to: 'static_pages#about', via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
 
-  match '/signup',  to: 'users#new',            via: 'get'
+  match '/signup',  to: 'users#new', via: 'get'
+
+
+  # added to support users
+
+  resources :users
+
+
 
   # get "static_pages/home"
   # get "static_pages/help"
