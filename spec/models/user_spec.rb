@@ -17,6 +17,8 @@ describe User do
   # 6.3.3 authentication...tet with has_secure_password commented out in TDD.
   it { should respond_to(:authenticate) }
 
+  it { should respond_to(:remember_token) }
+
   it { should be_valid }
 
   describe "when name is not present" do
@@ -109,5 +111,10 @@ describe User do
   describe "with a password that's too short" do
     before { @user.password = @user.password_confirmation = "a" * 5 }
     it { should be_invalid }
+  end
+
+  describe "remember token" do
+    before { @user.save }
+    its(:remember_token) { should_not be_blank }
   end
 end
