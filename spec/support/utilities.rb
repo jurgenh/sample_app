@@ -1,5 +1,6 @@
-include ApplicationHelper
+# include ApplicationHelper
 
+# this was moved to ???  I forget why it was commented out.
 
 # def full_title(page_title)
 #   base_title = "Ruby on Rails Tutorial Sample App"
@@ -9,3 +10,19 @@ include ApplicationHelper
 #     "#{base_title} | #{page_title}"
 #   end
 # end
+
+
+# 8.3.3
+include ApplicationHelper
+
+def valid_signin(user)
+  fill_in "Email",    with: user.email
+  fill_in "Password", with: user.password
+  click_button "Sign in"
+end
+
+RSpec::Matchers.define :have_error_message do |message|
+  match do |page|
+    expect(page).to have_selector('div.alert.alert-error', text: message)
+  end
+end
