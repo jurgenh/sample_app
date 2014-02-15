@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-    def create
+  def create
     @user = User.new(user_params)
     if @user.save
       sign_in @user
@@ -18,9 +18,27 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  # this is invoked through the edit/update button
+  def update
+    # get the user to update...don't we already know?
+    @user = User.find(params[:id])
+    # this uses string parameters to prevent mass assignment
+    # vulnerability.
+    #
+    # ok...got it...where is user_params
+    if @user.update_attributes(user_params)
+      # Handle a successful update.
+    else
+      render 'edit'
+    end
+  end
 
   private
   def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 end
