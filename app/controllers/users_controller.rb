@@ -31,6 +31,9 @@ class UsersController < ApplicationController
     #
     # ok...got it...where is user_params
     if @user.update_attributes(user_params)
+      # listing 9.10 makes this work.
+      flash[:success] = "Profile updated"
+      redirect_to @user
       # Handle a successful update.
     else
       render 'edit'
